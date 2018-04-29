@@ -21,10 +21,15 @@
 
 // place overrides here
 
+#undef RGBLIGHT_HUE_STEP
 #define RGBLIGHT_HUE_STEP 5 // units to step when in/decreasing hue
+#undef RGBLIGHT_SAT_STEP
 #define RGBLIGHT_SAT_STEP 5 // units to step when in/decresing saturation
+#undef RGBLIGHT_VAL_STEP
 #define RGBLIGHT_VAL_STEP 5 // units to step when in/decreasing value (brightness)
+#undef RGBLIGHT_LIMIT_VAL
 #define RGBLIGHT_LIMIT_VAL 255
+#undef RGBLIGHT_SLEEP
 #define RGBLIGHT_SLEEP
 
 #endif

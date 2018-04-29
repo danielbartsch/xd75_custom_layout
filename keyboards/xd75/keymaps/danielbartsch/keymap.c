@@ -23,24 +23,24 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
 /* WORKMAN
  * .--------------------------------------------------------------------------------------------------------------------------------------.
- * | ESC    | 0      | 1      | 2      | 3      | 4      | -      | `      | =      | 5      | 6      | 7      | 8      | 9      | BACKSP |
+ * | ESC    | 0      | 1      | 2      | 3      | 4      | -      | DEL    | =      | 5      | 6      | 7      | 8      | 9      | BACKSP |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------|
- * | TAB    | Q      | D      | R      | W      | B      | [      | \      | ]      | J      | F      | U      | P      | ;      | '      |
- * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------|
- * | CAP LK | A      | S      | H      | T      | G      | HOME   | DEL    | PG UP  | Y      | N      | E      | O      | I      | ENTER  |
- * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------|
- * | LSHIFT | Z      | X      | M      | C      | V      | END    | UP     | PG DN  | K      | L      | ,      | .      | /      | RSHIFT |
+ * | TAB    | [ {    | Q      | D      | R      | W      | B      | BACKSP | J      | F      | U      | P      | ;      | ] }    | '      |
+ * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------+--------|
+ * | CAP LK | (      | A      | S      | H      | T      | G      | Enter  | Y      | N      | E      | O      | I      | )      | ENTER  |
+ * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------+--------|
+ * | LSHIFT | END    | Z      | X      | M      | C      | V      | UP     | K      | L      | ,      | .      | /      | PG DN  | RSHIFT |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
- * | LCTRL  | LGUI   | LALT   | FN     | SPACE  | SPACE  | LEFT   | DOWN   | RIGHT  | SPACE  | SPACE  | FN     | RALT   | RGUI   | RCTRL  |
+ * | LCTRL  | LGUI   | LALT   | FN     | LSHIFT | SPACE  | LEFT   | DOWN   | RIGHT  | SPACE  | SPACE  | FN     | RALT   | RGUI   | RCTRL  |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
- [_WM] = { /* Workman */
-  { KC_ESC,  KC_0,    KC_1,    KC_2,    KC_3,   KC_4,   KC_MINS, KC_GRV,  KC_EQL,  KC_5,   KC_6,   KC_7,    KC_8,    KC_9,    KC_BSPC },
-  { KC_TAB,  KC_Q,    KC_D,    KC_R,    KC_W,   KC_B,   KC_LBRC, KC_BSLS, KC_RBRC, KC_J,   KC_F,   KC_U,    KC_P,    KC_SCLN, KC_QUOT },
-  { KC_CAPS, KC_A,    KC_S,    KC_H,    KC_T,   KC_G,   KC_HOME, KC_DEL,  KC_PGUP, KC_Y,   KC_N,   KC_E,    KC_O,    KC_I,    KC_ENT  },
-  { KC_LSFT, KC_Z,    KC_X,    KC_M,    KC_C,   KC_V,   KC_END,  KC_UP,   KC_PGDN, KC_K,   KC_L,   KC_COMM, KC_DOT,  KC_SLSH, KC_RSFT },
-  { KC_LCTL, KC_LGUI, KC_LALT, MO(_FN), KC_SPC, KC_SPC, KC_LEFT, KC_DOWN, KC_RGHT, KC_SPC, KC_SPC, MO(_FN), KC_RALT, KC_RGUI, KC_RCTL },
+[_WM] = { /* Workman */
+  { KC_ESC,  KC_0,    KC_1,    KC_2,    KC_3,    KC_4,   KC_MINS, KC_DEL,  KC_EQL,  KC_5, KC_6,    KC_7,    KC_8,    KC_9,    KC_BSPC },
+  { KC_TAB,  KC_LBRC, KC_Q,    KC_D,    KC_R,    KC_W,   KC_B,   KC_BSPC, KC_J,   KC_F,   KC_U,    KC_P,    KC_SCLN, KC_RBRC, KC_QUOT },
+  { KC_CAPS, KC_LPRN, KC_A,    KC_S,    KC_H,    KC_T,   KC_G,   KC_ENT,  KC_Y,   KC_N,   KC_E,    KC_O,    KC_I,    KC_RPRN, KC_ENT  },
+  { KC_LSFT, KC_END,  KC_Z,    KC_X,    KC_M,    KC_C,   KC_V,   KC_UP,   KC_K,   KC_L,   KC_COMM, KC_DOT,  KC_SLSH, KC_PGDN, KC_RSFT },
+  { KC_LCTL, KC_LGUI, KC_LALT, MO(_FN), KC_LSFT, KC_SPC, KC_LEFT,KC_DOWN, KC_RGHT, KC_SPC,KC_SPC,  MO(_FN), KC_RALT, KC_RGUI, KC_RCTL },
  },
 
 /* FUNCTION

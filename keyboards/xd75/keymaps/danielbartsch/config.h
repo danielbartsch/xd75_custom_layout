@@ -31,5 +31,7 @@
 #define RGBLIGHT_VAL_STEP 5 // units to step when in/decreasing value (brightness)
 #define RGBLIGHT_LIMIT_VAL 255
 #define RGBLIGHT_SLEEP
+#define PERMISSIVE_HOLD
+#define TAPPING_TERM 150
 
 #endif

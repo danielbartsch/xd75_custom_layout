@@ -32,6 +32,5 @@
 #define RGBLIGHT_LIMIT_VAL 255
 #define RGBLIGHT_SLEEP
 #define PERMISSIVE_HOLD
-#define TAPPING_TERM 150
 
 #endif

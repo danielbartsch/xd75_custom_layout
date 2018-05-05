@@ -1,1 +1,1 @@
-# The default keymap for xd75
+# My workman layout keyboard

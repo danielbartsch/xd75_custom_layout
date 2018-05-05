@@ -43,7 +43,7 @@
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 /* WORKMAN
  * .--------------------------------------------------------------------------------------------------------------------------------------.
- * | ESC    | 0      | 1      | 2      | 3      | 4      | HOME   | DEL    | END    | 5      | 6      | 7      | 8      | 9      |        |
+ * | ESC    | 0      | 1      | 2      | 3      | 4      | HOME   | DEL    | END    | 5      | 6      | 7      | 8      | 9      | PRINT  |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------|
  * |        | CAPS   | q      | d      | r      | w      | b      | BACKSP | j      | f      | u      | p      | ;      |        |        |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------+--------|
@@ -56,7 +56,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_WM] = { /* WORKMAN */
-  { KC_ESC, KC_0,    KC_1,   KC_2,   KC_3,     KC_4,            KC_HOME,KC_DEL,  KC_END,  KC_5,            KC_6,    KC_7,   KC_8,    KC_9,   __ss__ },
+  { KC_ESC, KC_0,    KC_1,   KC_2,   KC_3,     KC_4,            KC_HOME,KC_DEL,  KC_END,  KC_5,            KC_6,    KC_7,   KC_8,    KC_9,   KC_PSCR },
   { __ss__, KC_CAPS, KC_Q,   KC_D,   KC_R,     KC_W,            KC_B,   KC_BSPC, KC_J,    KC_F,            KC_U,    KC_P,   KC_SCLN, __ss__, __ss__ },
   { __ss__, KC_TAB,  KC_A,   KC_S,   KC_H,     KC_T,            KC_G,   KC_ENT,  KC_Y,    KC_N,            KC_E,    KC_O,   KC_I,    __ss__, __ss__ },
   { __ss__, __ss__,  KC_Z,   KC_X,   KC_M,     KC_C,            KC_V,   KC_UP,   KC_K,    KC_L,            KC_COMM, KC_DOT, KC_SLSH, __ss__, __ss__ },
@@ -82,7 +82,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { ______, ______, RSFT(KC_Q), RSFT(KC_D), RSFT(KC_R), RSFT(KC_W), RSFT(KC_B),    ______,        RSFT(KC_J),    RSFT(KC_F), RSFT(KC_U),  RSFT(KC_P), KC_COLN,    ______, ______ },
   { ______, ______, RSFT(KC_A), RSFT(KC_S), RSFT(KC_H), RSFT(KC_T), RSFT(KC_G),    ______,        RSFT(KC_Y),    RSFT(KC_N), RSFT(KC_E),  RSFT(KC_O), RSFT(KC_I), ______, ______ },
   { ______, ______, RSFT(KC_Z), RSFT(KC_X), RSFT(KC_M), RSFT(KC_C), RSFT(KC_V),    RSFT(KC_UP),   RSFT(KC_K),    RSFT(KC_L), KC_QUES,     KC_EXLM,    KC_BSLASH,  ______, ______ },
-  { ______, ______, ______,     ______,    ______,     ______,     RSFT(KC_LEFT), RSFT(KC_DOWN), RSFT(KC_RGHT), ______,     ______,      ______,     ______,     ______, ______ },
+  { ______, ______, ______,     ______,    ______,     ______,      RSFT(KC_LEFT), RSFT(KC_DOWN), RSFT(KC_RGHT), ______,     ______,      ______,     ______,     ______, ______ },
  },
 
 /* FUNCTION

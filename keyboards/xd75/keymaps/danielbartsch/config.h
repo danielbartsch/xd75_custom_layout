@@ -32,5 +32,11 @@
 #define RGBLIGHT_LIMIT_VAL 255
 #define RGBLIGHT_SLEEP
 #define PERMISSIVE_HOLD
+#define MOUSEKEY_DELAY             100
+#define MOUSEKEY_INTERVAL          30
+#define MOUSEKEY_MAX_SPEED         30
+#define MOUSEKEY_TIME_TO_MAX       30 
+#define MOUSEKEY_WHEEL_MAX_SPEED   20
+#define MOUSEKEY_WHEEL_TIME_TO_MAX 100
 
 #endif

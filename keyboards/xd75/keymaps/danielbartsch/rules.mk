@@ -16,3 +16,15 @@
 ifndef QUANTUM_DIR
 	include ../../../../Makefile
 endif
+
+MOUSEKEY_ENABLE = yes
+KEY_LOCK_ENABLE = yes
+
+
+BOOTMAGIC_ENABLE = no
+EXTRAKEY_ENABLE = no
+COMMAND_ENABLE = no
+NKRO_ENABLE = no
+BACKLIGHT_ENABLE = no
+AUDIO_ENABLE = no
+RGBLIGHT_ENABLE = yes

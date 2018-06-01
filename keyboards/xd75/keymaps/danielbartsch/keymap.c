@@ -51,16 +51,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------+--------|
  * | &      | z      | x      | m      | c      | v      | k      | l      | ,      | .      | /      | -      |        | UP     |        |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
- * |        | VOLDWN | VOLUP  | LALT   | SPACELS| LCTRL  | RCTRL  | SPACEFN| RALT   |        |        | MENU   | LEFT   | DOWN   | RIGHT  |
+ * |        | VOLDWN | VOLUP  | LALT   | SPACELS| LCTRL  | RCTRL  | SPACEFN| RALT   | LOCK   |        | MENU   | LEFT   | DOWN   | RIGHT  |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
 [_WM] = { /* WORKMAN */
-  { KC_ESC,  KC_0,              KC_1,            KC_2,    KC_3,            KC_4,     KC_5,    KC_6,            KC_7,    KC_8,   KC_9,    KC_DLR,  KC_DEL,   KC_PGUP,   KC_HOME },
-  { DF(_SH), KC_Q,              KC_D,            KC_R,    KC_W,            KC_B,     KC_J,    KC_F,            KC_U,    KC_P,   KC_SCLN, KC_EQL,  KC_BSPC,  KC_PGDOWN, KC_END },
-  { KC_TAB,  KC_A,              KC_S,            KC_H,    KC_T,            KC_G,     KC_Y,    KC_N,            KC_E,    KC_O,   KC_I,    KC_QUOT, KC_ENT,   KC_PSCR,   KC_RGUI },
-  { KC_AMPR, KC_Z,              KC_X,            KC_M,    KC_C,            KC_V,     KC_K,    KC_L,            KC_COMM, KC_DOT, KC_SLSH, KC_PMNS, __ss__,   KC_UP,     __ss__ },
-  { __ss__,  KC_AUDIO_VOL_DOWN, KC_AUDIO_VOL_UP, KC_LALT, LT(_SH, __ss__), KC_LCTRL, KC_RCTL, LT(_FN, __ss__), KC_RALT, __ss__, __ss__,  KC_MENU, KC_LEFT,  KC_DOWN,   KC_RGHT },
+  { KC_ESC,  KC_0,              KC_1,            KC_2,    KC_3,            KC_4,     KC_5,    KC_6,            KC_7,    KC_8,    KC_9,    KC_DLR,  KC_DEL,   KC_PGUP,   KC_HOME },
+  { DF(_SH), KC_Q,              KC_D,            KC_R,    KC_W,            KC_B,     KC_J,    KC_F,            KC_U,    KC_P,    KC_SCLN, KC_EQL,  KC_BSPC,  KC_PGDOWN, KC_END },
+  { KC_TAB,  KC_A,              KC_S,            KC_H,    KC_T,            KC_G,     KC_Y,    KC_N,            KC_E,    KC_O,    KC_I,    KC_QUOT, KC_ENT,   KC_PSCR,   KC_RGUI },
+  { KC_AMPR, KC_Z,              KC_X,            KC_M,    KC_C,            KC_V,     KC_K,    KC_L,            KC_COMM, KC_DOT,  KC_SLSH, KC_PMNS, __ss__,   KC_UP,     __ss__ },
+  { __ss__,  KC_AUDIO_VOL_DOWN, KC_AUDIO_VOL_UP, KC_LALT, LT(_SH, __ss__), KC_LCTRL, KC_RCTL, LT(_FN, __ss__), KC_RALT, KC_LOCK, __ss__,  KC_MENU, KC_LEFT,  KC_DOWN,   KC_RGHT },
 },
 
  /* SHIFT
@@ -117,16 +117,16 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
   // MACRODOWN only works in this function
       switch(id) {
         case 0:
-          if (record->event.pressed) {
+      if (record->event.pressed) {
             register_code(KC_RSFT);
             #ifdef BACKLIGHT_ENABLE
               backlight_step();
             #endif
-          } else {
+      } else {
             unregister_code(KC_RSFT);
-          }
+  }
         break;
-      }
+}
     return MACRO_NONE;
 };
 

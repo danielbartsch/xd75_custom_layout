@@ -112,23 +112,28 @@ const uint16_t PROGMEM fn_actions[] = {
 
 };
 
-const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
-{
-  // MACRODOWN only works in this function
-      switch(id) {
-        case 0:
+static bool fakeShiftPressed = false;
+
+bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  switch (keycode) {
+    case LT(_SH, __ss__):
       if (record->event.pressed) {
-            register_code(KC_RSFT);
-            #ifdef BACKLIGHT_ENABLE
-              backlight_step();
-            #endif
+        SEND_STRING(SS_DOWN(X_LSHIFT));
+        fakeShiftPressed = true;
       } else {
-            unregister_code(KC_RSFT);
+        SEND_STRING(SS_UP(X_LSHIFT));
+        fakeShiftPressed = false;
+      }
+      return true;
+    default:
+      if (record->event.pressed && !fakeShiftPressed) {
+        SEND_STRING(SS_UP(X_LSHIFT));
+      } else if (fakeShiftPressed) {
+        SEND_STRING(SS_DOWN(X_LSHIFT));
+      }
+      return true;
   }
-        break;
 }
-    return MACRO_NONE;
-};
 
 // bool process_record_user(uint16_t keycode, keyrecord_t *record) {
 //   switch (keycode) {

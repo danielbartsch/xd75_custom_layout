@@ -65,7 +65,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 
  /* SHIFT
  * .--------------------------------------------------------------------------------------------------------------------------------------.
- * |        |        |        |        |        |        |        |        |        |        |        | %      | DEL    | PGUP   | HOME   |
+ * |        | NUM 0  | NUM 1  | NUM 2  | NUM 3  | NUM 4  | NUM 5  | NUM 6  | NUM 7  | NUM 8  | NUM 9  | %      | DEL    | PGUP   | HOME   |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------|
  * |        | Q      | D      | R      | W      | B      | J      | F      | U      | P      | :      | +      | BACKSP | PGDOWN | END    |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------+--------|
@@ -78,7 +78,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_SH] = { /* SHIFT */
-  { ______,       ______,     ______,     ______,        ______,     ______,         ______,        ______,     ______,        ______,     ______,     RSFT(KC_5),    RSFT(KC_DEL),   RSFT(KC_PGUP),   RSFT(KC_HOME) },
+  { ______,       KC_P0,      KC_P1,      KC_P2,         KC_P3,      KC_P4,          KC_P5,         KC_P6,      KC_P7,         KC_P8,      KC_P9,      RSFT(KC_5),    RSFT(KC_DEL),   RSFT(KC_PGUP),   RSFT(KC_HOME) },
   { DF(_WM),      RSFT(KC_Q), RSFT(KC_D), RSFT(KC_R),    RSFT(KC_W), RSFT(KC_B),     RSFT(KC_J),    RSFT(KC_F), RSFT(KC_U),    RSFT(KC_P), KC_COLN,    KC_PPLS,       RSFT(KC_BSPC),  RSFT(KC_PGDOWN), RSFT(KC_END) },
   { RSFT(KC_TAB), RSFT(KC_A), RSFT(KC_S), RSFT(KC_H),    RSFT(KC_T), RSFT(KC_G),     RSFT(KC_Y),    RSFT(KC_N), RSFT(KC_E),    RSFT(KC_O), RSFT(KC_I), KC_DQT,        RSFT(KC_ENT),   ______,          RSFT(KC_RGUI) },
   { KC_AT,        RSFT(KC_Z), RSFT(KC_X), RSFT(KC_M),    RSFT(KC_C), RSFT(KC_V),     RSFT(KC_K),    RSFT(KC_L), KC_QUES,       KC_EXLM,    KC_BSLASH,  KC_UNDS,       ______,         RSFT(KC_UP),     ______ },

@@ -73,16 +73,16 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------+--------|
  * | @      | Z      | X      | M      | C      | V      | K      | L      | ?      | !      | \      | _      |        | UP     |        |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
- * |        |        |        |        |        |        |        |        |        |        |        |        | LEFT   | DOWN   | RIGHT  | 
+ * |        |        |        |        |        |        |        |        |        |        |        |        | LEFT   | DOWN   | RIGHT  |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
 [_SH] = { /* SHIFT */
-  { ______,       KC_P0,      KC_P1,      KC_P2,         KC_P3,      KC_P4,          KC_P5,         KC_P6,      KC_P7,         KC_P8,      KC_P9,      RSFT(KC_5),    RSFT(KC_DEL),   RSFT(KC_PGUP),   RSFT(KC_HOME) },
-  { DF(_WM),      RSFT(KC_Q), RSFT(KC_D), RSFT(KC_R),    RSFT(KC_W), RSFT(KC_B),     RSFT(KC_J),    RSFT(KC_F), RSFT(KC_U),    RSFT(KC_P), KC_COLN,    KC_PPLS,       RSFT(KC_BSPC),  RSFT(KC_PGDOWN), RSFT(KC_END) },
-  { RSFT(KC_TAB), RSFT(KC_A), RSFT(KC_S), RSFT(KC_H),    RSFT(KC_T), RSFT(KC_G),     RSFT(KC_Y),    RSFT(KC_N), RSFT(KC_E),    RSFT(KC_O), RSFT(KC_I), KC_DQT,        RSFT(KC_ENT),   ______,          RSFT(KC_RGUI) },
-  { KC_AT,        RSFT(KC_Z), RSFT(KC_X), RSFT(KC_M),    RSFT(KC_C), RSFT(KC_V),     RSFT(KC_K),    RSFT(KC_L), KC_QUES,       KC_EXLM,    KC_BSLASH,  KC_UNDS,       ______,         RSFT(KC_UP),     ______ },
-  { ______,       ______,     ______,     RSFT(KC_LALT), ______,     RSFT(KC_LCTRL), RSFT(KC_RCTL), ______,     RSFT(KC_RALT), ______,     ______,     RSFT(KC_MENU), RSFT(KC_LEFT),  RSFT(KC_DOWN),   RSFT(KC_RGHT) },
+  { ______,  KC_P0,  KC_P1,  KC_P2,  KC_P3,  KC_P4,  KC_P5,  KC_P6,  KC_P7,   KC_P8,   KC_P9,     RSFT(KC_5), ______, ______, ______ },
+  { DF(_WM), ______, ______, ______, ______, ______, ______, ______, ______,  ______,  KC_COLN,   KC_PPLS,    ______, ______, ______ },
+  { ______,  ______, ______, ______, ______, ______, ______, ______, ______,  ______,  ______,    KC_DQT,     ______, ______, ______ },
+  { KC_AT,   ______, ______, ______, ______, ______, ______, ______, KC_QUES, KC_EXLM, KC_BSLASH, KC_UNDS,    ______, ______, ______ },
+  { ______,  ______, ______, ______, ______, ______, ______, ______, ______,  ______,  ______,    ______,     ______, ______, ______ },
 },
 
 /* FUNCTION
@@ -108,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 }
 };
 
-const uint16_t PROGMEM fn_actions[] = { 
+const uint16_t PROGMEM fn_actions[] = {
 
 };
 
@@ -134,34 +134,3 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       return true;
   }
 }
-
-// bool process_record_user(uint16_t keycode, keyrecord_t *record) {
-//   switch (keycode) {
-//     /* os switcher */
-//     case OS_LIN:
-//       set_unicode_input_mode(UC_LNX);
-//       rgblight_enable();
-//       rgblight_setrgb(233, 84, 32);
-//       return false;
-//       break;
-//     case OS_WIN:
-//       set_unicode_input_mode(UC_WINC);
-//       rgblight_enable();
-//       rgblight_setrgb(0, 122, 204);
-//       return false;
-//       break;
-//     case OS_MAC:
-//       set_unicode_input_mode(UC_OSX);
-//       rgblight_enable();
-//       rgblight_setrgb(255, 255, 255);
-//       return false;
-//       break;
-//   }
-//   return true;
-// }
-
-// void matrix_init_user() {
-//   set_unicode_input_mode(UC_WINC);
-//   rgblight_enable();
-//   rgblight_setrgb(0, 122, 204);
-// }

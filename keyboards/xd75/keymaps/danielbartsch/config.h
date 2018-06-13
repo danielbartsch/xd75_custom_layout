@@ -35,8 +35,9 @@
 #define MOUSEKEY_DELAY             100
 #define MOUSEKEY_INTERVAL          30
 #define MOUSEKEY_MAX_SPEED         30
-#define MOUSEKEY_TIME_TO_MAX       30 
+#define MOUSEKEY_TIME_TO_MAX       30
 #define MOUSEKEY_WHEEL_MAX_SPEED   20
 #define MOUSEKEY_WHEEL_TIME_TO_MAX 100
+#define TAPPING_FORCE_HOLD
 
 #endif

@@ -14,6 +14,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include "xd75.h"
+#include "keymap_german.h"
 
 // Layer shorthand
 #define _WM 0
@@ -60,10 +61,10 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_WM] = { /* WORKMAN */
-  { KC_ESC,  KC_0,   KC_1,   KC_2,    KC_3,  KC_4,     KC_5,    KC_6,  KC_7,    KC_8,    KC_9,    __ss__,  __ss__,  __ss__,  KC_PGUP },
-  { KC_ENT,  KC_Q,   KC_D,   KC_R,    KC_W,  KC_B,     KC_J,    KC_F,  KC_U,    KC_P,    KC_EQL,  KC_DLR,  __ss__,  __ss__,  KC_PGDOWN },
-  { KC_TAB,  KC_A,   KC_S,   KC_H,    KC_T,  KC_G,     KC_Y,    KC_N,  KC_E,    KC_O,    KC_I,    KC_QUOT, __ss__,  KC_PSCR, KC_RGUI },
-  { KC_AMPR, KC_Z,   KC_X,   KC_M,    KC_C,  KC_V,     KC_K,    KC_L,  KC_COMM, KC_DOT,  KC_SLSH, KC_PMNS, KC_HOME, KC_UP,   KC_END },
+  { KC_ESC,  DE_0,   DE_1,   DE_2,    DE_3,  DE_4,     DE_5,    DE_6,  DE_7,    DE_8,    DE_9,    __ss__,  __ss__,  __ss__,  KC_PGUP },
+  { KC_ENT,  DE_Q,   DE_D,   DE_R,    DE_W,  DE_B,     DE_J,    DE_F,  DE_U,    DE_P,    DE_EQL,  DE_DLR,  __ss__,  __ss__,  KC_PGDOWN },
+  { KC_TAB,  DE_A,   DE_S,   DE_H,    DE_T,  DE_G,     DE_Y,    DE_N,  DE_E,    DE_O,    DE_I,    DE_QUOT, __ss__,  KC_PSCR, KC_RGUI },
+  { DE_AMPR, DE_Z,   DE_X,   DE_M,    DE_C,  DE_V,     DE_K,    DE_L,  DE_COMM, DE_DOT,  DE_SLSH, DE_MINS, KC_HOME, KC_UP,   KC_END },
   { __ss__,  VOL_DN, VOL_UP, KC_LALT, LS_SH, KC_LCTRL, KC_BSPC, LS_FN, KC_DEL,  KC_LOCK, __ss__,  KC_MENU, KC_LEFT, KC_DOWN, KC_RGHT },
 },
 
@@ -82,11 +83,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_SH] = { /* SHIFT */
-  { ______, KC_P0,  KC_P1,  KC_P2,  KC_P3,  KC_P4,  KC_P5,  KC_P6,  KC_P7,   KC_P8,   KC_P9,   ______,     ______, ______, ______ },
-  { ______, ______, ______, ______, ______, ______, ______, ______, ______,  ______,  KC_PPLS, RSFT(KC_5), ______, ______, ______ },
-  { ______, ______, ______, ______, ______, ______, ______, ______, ______,  ______,  ______,  KC_DQT,     ______, ______, ______ },
-  { KC_AT,  ______, ______, ______, ______, ______, ______, ______, KC_QUES, KC_EXLM, KC_PIPE, KC_UNDS,    ______, ______, ______ },
-  { ______, ______, ______, ______, ______, ______, ______, ______, ______,  ______,  ______,  ______,     ______, ______, ______ },
+  { ______, KC_P0,  KC_P1,  KC_P2,  KC_P3,  KC_P4,  KC_P5,  KC_P6,  KC_P7,  KC_P8,   KC_P9,   ______,  ______, ______, ______ },
+  { ______, ______, ______, ______, ______, ______, ______, ______, ______, ______,  DE_PLUS, DE_PERC, ______, ______, ______ },
+  { ______, ______, ______, ______, ______, ______, ______, ______, ______, ______,  ______,  DE_DQOT, ______, ______, ______ },
+  { DE_AT,  ______, ______, ______, ______, ______, ______, ______, DE_QST, DE_EXLM, DE_PIPE, DE_UNDS, ______, ______, ______ },
+  { ______, ______, ______, ______, ______, ______, ______, ______, ______, ______,  ______,  ______,  ______, ______, ______ },
 },
 
 /* FUNCTION
@@ -97,18 +98,18 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  * |        | {      | }      | [      | ]      |        |        | (      | )      | <      | >      | `      | WHEELLT| WHEELDN| WHEELRT|
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * | #      |        |        |        |        |        |        |        |        |        | \      | ^      | LTCLCK | MOUSEUP| RTCLCK |
+ * | #      |        |        |        |        |        |        |        | ;      | :      | \      | ^      | LTCLCK | MOUSEUP| RTCLCK |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  * | RESET  |        |        |        |        |        | BACKSP | FN     | DEL    |        |        |        | MOUSELT| MOUSEDN| MOUSERT|
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
 [_FN] = { /* FUNCTION */
-  { ______,  ______,  KC_F1,   KC_F2,   KC_F3,   KC_F4,  KC_F5,  KC_F6,   KC_F7,   KC_F8,   KC_F9,     KC_F10,       KC_F11,        KC_F12,        ______ },
-  { ______,  ______,  ______,  ______,  ______,  ______, ______, ______,  ______,  ______,  KC_ASTR,   RSFT(KC_GRV), ______,        KC_MS_WH_UP,   ______ },
-  { ______,  KC_LCBR, KC_RCBR, KC_LBRC, KC_RBRC, ______, ______, KC_LPRN, KC_RPRN, KC_LT,   KC_GT,     KC_GRV,       KC_MS_WH_LEFT, KC_MS_WH_DOWN, KC_MS_WH_RIGHT },
-  { KC_HASH, ______,  ______,  ______,  ______,  ______, ______, ______,  KC_SCLN, KC_COLN, KC_BSLASH, KC_CIRC,      KC_MS_BTN1,    KC_MS_UP,      KC_MS_BTN2 },
-  { RESET,   ______,  ______,  ______,  ______,  ______, ______, ______,  ______,  ______,  ______,    ______,       KC_MS_LEFT,    KC_MS_DOWN,    KC_MS_RIGHT },
+  { ______,  ______,  KC_F1,   KC_F2,   KC_F3,   KC_F4,  KC_F5,  KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,        KC_F12,        ______ },
+  { ______,  ______,  ______,  ______,  ______,  ______, ______, ______,  ______,  ______,  DE_ASTR, DE_TILD, ______,        KC_MS_WH_UP,   ______ },
+  { ______,  DE_LCBR, DE_RCBR, DE_LBRC, DE_RBRC, ______, ______, DE_LPRN, DE_RPRN, DE_LESS, DE_MORE, DE_GRV,  KC_MS_WH_LEFT, KC_MS_WH_DOWN, KC_MS_WH_RIGHT },
+  { DE_HASH, ______,  ______,  ______,  ______,  ______, ______, ______,  DE_SCLN, DE_COLN, DE_BSLS, DE_CIRC, KC_MS_BTN1,    KC_MS_UP,      KC_MS_BTN2 },
+  { RESET,   ______,  ______,  ______,  ______,  ______, ______, ______,  ______,  ______,  ______,  ______,  KC_MS_LEFT,    KC_MS_DOWN,    KC_MS_RIGHT },
 }
 };
 
@@ -127,6 +128,18 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
       } else {
         SEND_STRING(SS_UP(X_LSHIFT));
         fakeShiftPressed = false;
+      }
+      return true;
+    case DE_PLUS:
+    case DE_BSLS:
+    case DE_AT:
+    case DE_PIPE:
+      if (record->event.pressed) {
+        SEND_STRING(SS_UP(X_LSHIFT));
+        fakeShiftPressed = false;
+      } else {
+        SEND_STRING(SS_DOWN(X_LSHIFT));
+        fakeShiftPressed = true;
       }
       return true;
     default:

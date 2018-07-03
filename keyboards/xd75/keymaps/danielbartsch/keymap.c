@@ -43,6 +43,10 @@
 #define LS_FN LT(_FN, __ss__)
 #define VOL_DN KC_AUDIO_VOL_DOWN
 #define VOL_UP KC_AUDIO_VOL_UP
+#define MS_LEFT KC_MS_LEFT
+#define MS_UP KC_MS_UP
+#define MS_DOWN KC_MS_DOWN
+#define MS_RIGHT KC_MS_RIGHT
 // rsft = tap letter with right shift
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -98,9 +102,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  * | ENTER  | {      | }      | [      | ]      |        |        | (      | )      | <      | >      | `      | WHEELLT| WHEELDN| WHEELRT|
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * | #      | MLEFT  | MUP    | MDOWN  | MRIGHT |        |        |        | ;      | :      | \      | ^      | LTCLCK | MOUSEUP| RTCLCK |
+ * | #      | MLEFT  | MUP    | MDOWN  | MRIGHT |        |        |        | ;      | :      | \      | ^      | LTCLCK | MUP    | RTCLCK |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * | RESET  |        |        |        |        |        | BACKSP | FN     | DEL    |        |        |        | MOUSELT| MOUSEDN| MOUSERT|
+ * | RESET  |        |        |        |        |        | BACKSP | FN     | DEL    |        |        |        | MLEFT  | MDOWN  | MRIGHT |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
@@ -110,6 +114,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { ______,  DE_LCBR, DE_RCBR, DE_LBRC, DE_RBRC, ______, ______, DE_LPRN, DE_RPRN, DE_LESS, DE_MORE, DE_GRV,  KC_MS_WH_LEFT, KC_MS_WH_DOWN, KC_MS_WH_RIGHT },
   { DE_HASH, KC_MS_LEFT, KC_MS_UP, KC_MS_DOWN, KC_MS_RIGHT, ______, ______, ______,  DE_SCLN, DE_COLN, DE_BSLS, DE_CIRC, KC_MS_BTN1,    KC_MS_UP,      KC_MS_BTN2 },
   { RESET,   ______,  ______,  ______,  ______,  ______, ______, ______,  ______,  ______,  ______,  ______,  KC_MS_LEFT,    KC_MS_DOWN,    KC_MS_RIGHT },
+  { DE_HASH, MS_LEFT, MS_UP,   MS_DOWN,        MS_RIGHT,        ______, ______, ______,         DE_SCLN,        DE_COLN, DE_BSLS, DE_CIRC, KC_MS_BTN1,    MS_UP,         KC_MS_BTN2 },
+  { RESET,   ______,  ______,  ______,         ______,          ______, ______, ______,         ______,         ______,  ______,  ______,  MS_LEFT,       MS_DOWN,       MS_RIGHT },
 }
 };
 

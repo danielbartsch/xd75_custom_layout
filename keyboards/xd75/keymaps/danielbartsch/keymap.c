@@ -142,6 +142,14 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         fakeShiftPressed = true;
       }
       return true;
+    case DE_GRV:
+      if (record->event.pressed) {
+        // '+' equals shifted '=' in american keyboard, which equals backtick in german keyboard
+        // one backtick in german keyboard prints nothing (dead key), a second tap prints two backticks
+        // the following sendstring ensures that one backtick is sent
+        SEND_STRING("++"SS_TAP(X_BSPACE));
+      }
+      return false;
     default:
       if (record->event.pressed && !fakeShiftPressed) {
         SEND_STRING(SS_UP(X_LSHIFT));

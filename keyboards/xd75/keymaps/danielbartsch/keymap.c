@@ -21,6 +21,14 @@
 #define _SH 1
 #define _FN 2
 
+enum custom_keycodes {
+  PLACEHOLDER = SAFE_RANGE,
+  CURLY_BRACKETS,
+  SQUARE_BRACKETS,
+  ROUND_BRACKETS,
+  ANGLE_BRACKETS
+};
+
 // os switches
 // #define OS_LIN 101
 // #define OS_MAC 100
@@ -100,7 +108,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  * | TAB    | LEFT   | UP     | DOWN   | RIGHT  |        |        |        |        |        | *      | ~      |        | WHEELUP|        |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * | ENTER  | {      | }      | [      | ]      |        |        | (      | )      | <      | >      | `      | WHEELLT| WHEELDN| WHEELRT|
+ * | ENTER  |        |        | {}     | []     |        |        | ()     | <>     |        |        | `      | WHEELLT| WHEELDN| WHEELRT|
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  * | #      | MLEFT  | MUP    | MDOWN  | MRIGHT |        |        |        | ;      | :      | \      | ^      | LTCLCK | MUP    | RTCLCK |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
@@ -109,11 +117,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_FN] = { /* FUNCTION */
-  { ______,  ______,  KC_F1,   KC_F2,   KC_F3,   KC_F4,  KC_F5,  KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,        KC_F12,        ______ },
-  { ______,  KC_LEFT, KC_UP,   KC_DOWN, KC_RIGHT,______, ______, ______,  ______,  ______,  DE_ASTR, DE_TILD, ______,        KC_MS_WH_UP,   ______ },
-  { ______,  DE_LCBR, DE_RCBR, DE_LBRC, DE_RBRC, ______, ______, DE_LPRN, DE_RPRN, DE_LESS, DE_MORE, DE_GRV,  KC_MS_WH_LEFT, KC_MS_WH_DOWN, KC_MS_WH_RIGHT },
-  { DE_HASH, KC_MS_LEFT, KC_MS_UP, KC_MS_DOWN, KC_MS_RIGHT, ______, ______, ______,  DE_SCLN, DE_COLN, DE_BSLS, DE_CIRC, KC_MS_BTN1,    KC_MS_UP,      KC_MS_BTN2 },
-  { RESET,   ______,  ______,  ______,  ______,  ______, ______, ______,  ______,  ______,  ______,  ______,  KC_MS_LEFT,    KC_MS_DOWN,    KC_MS_RIGHT },
+  { ______,  ______,  KC_F1,   KC_F2,          KC_F3,           KC_F4,  KC_F5,  KC_F6,          KC_F7,          KC_F8,   KC_F9,   KC_F10,  KC_F11,        KC_F12,        ______ },
+  { ______,  KC_LEFT, KC_UP,   KC_DOWN,        KC_RIGHT,        ______, ______, ______,         ______,         ______,  DE_ASTR, DE_TILD, ______,        KC_MS_WH_UP,   ______ },
+  { ______,  ______,  ______,  CURLY_BRACKETS, SQUARE_BRACKETS, ______, ______, ROUND_BRACKETS, ANGLE_BRACKETS, ______,  ______,  DE_GRV,  KC_MS_WH_LEFT, KC_MS_WH_DOWN, KC_MS_WH_RIGHT },
   { DE_HASH, MS_LEFT, MS_UP,   MS_DOWN,        MS_RIGHT,        ______, ______, ______,         DE_SCLN,        DE_COLN, DE_BSLS, DE_CIRC, KC_MS_BTN1,    MS_UP,         KC_MS_BTN2 },
   { RESET,   ______,  ______,  ______,         ______,          ______, ______, ______,         ______,         ______,  ______,  ______,  MS_LEFT,       MS_DOWN,       MS_RIGHT },
 }
@@ -154,6 +160,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         // one backtick in german keyboard prints nothing (dead key), a second tap prints two backticks
         // the following sendstring ensures that one backtick is sent
         SEND_STRING("++"SS_TAP(X_BSPACE));
+      }
+      return false;
+    case CURLY_BRACKETS:
+      if (record->event.pressed) {
+        // right alt + 7 equals '{', right alt + 0 equals '}' in german keyboard
+        SEND_STRING(SS_DOWN(X_RALT)"70"SS_UP(X_RALT)SS_TAP(X_LEFT));
+      }
+      return false;
+    case SQUARE_BRACKETS:
+      if (record->event.pressed) {
+        // right alt + 8 equals '[', right alt + 9 equals ']' in german keyboard
+        SEND_STRING(SS_DOWN(X_RALT)"89"SS_UP(X_RALT)SS_TAP(X_LEFT));
+      }
+      return false;
+    case ROUND_BRACKETS:
+      if (record->event.pressed) {
+        // shift + 8 equals '(', shift + 9 equals ')' in german keyboard
+        SEND_STRING(SS_DOWN(X_LSHIFT)"89"SS_UP(X_LSHIFT)SS_TAP(X_LEFT));
+      }
+      return false;
+    case ANGLE_BRACKETS:
+      if (record->event.pressed) {
+        // X_NONUS_BSLASH is a key that does not exist in an american keyboard.
+        // It produces < normally, and > in shifted state in a german keyboard.
+        SEND_STRING(SS_TAP(X_NONUS_BSLASH)SS_DOWN(X_LSHIFT)SS_TAP(X_NONUS_BSLASH)SS_UP(X_LSHIFT)SS_TAP(X_LEFT));
       }
       return false;
     default:

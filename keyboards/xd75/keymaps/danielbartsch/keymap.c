@@ -106,9 +106,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * .--------------------------------------------------------------------------------------------------------------------------------------.
  * |        |        | F1     | F2     | F3     | F4     | F5     | F6     | F7     | F8     | F9     | F10    | F11    | F12    |        |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * | TAB    | LEFT   | UP     | DOWN   | RIGHT  |        |        |        |        |        | *      | ~      |        | WHEELUP|        |
+ * | TAB    | <>     | []     | {}     | ()     |        |        |        |        |        | *      | ~      |        | WHEELUP|        |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * | ENTER  |        |        | {}     | []     |        |        | ()     | <>     |        |        | `      | WHEELLT| WHEELDN| WHEELRT|
+ * | ENTER  | LEFT   | UP     | DOWN   | RIGHT  |        |        |        |        |        |        | `      | WHEELLT| WHEELDN| WHEELRT|
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  * | #      | MLEFT  | MUP    | MDOWN  | MRIGHT |        |        |        | ;      | :      | \      | ^      | LTCLCK | MUP    | RTCLCK |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
@@ -117,11 +117,11 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 
 [_FN] = { /* FUNCTION */
-  { ______,  ______,  KC_F1,   KC_F2,          KC_F3,           KC_F4,  KC_F5,  KC_F6,          KC_F7,          KC_F8,   KC_F9,   KC_F10,  KC_F11,        KC_F12,        ______ },
-  { ______,  KC_LEFT, KC_UP,   KC_DOWN,        KC_RIGHT,        ______, ______, ______,         ______,         ______,  DE_ASTR, DE_TILD, ______,        KC_MS_WH_UP,   ______ },
-  { ______,  ______,  ______,  CURLY_BRACKETS, SQUARE_BRACKETS, ______, ______, ROUND_BRACKETS, ANGLE_BRACKETS, ______,  ______,  DE_GRV,  KC_MS_WH_LEFT, KC_MS_WH_DOWN, KC_MS_WH_RIGHT },
-  { DE_HASH, MS_LEFT, MS_UP,   MS_DOWN,        MS_RIGHT,        ______, ______, ______,         DE_SCLN,        DE_COLN, DE_BSLS, DE_CIRC, KC_MS_BTN1,    MS_UP,         KC_MS_BTN2 },
-  { RESET,   ______,  ______,  ______,         ______,          ______, ______, ______,         ______,         ______,  ______,  ______,  MS_LEFT,       MS_DOWN,       MS_RIGHT },
+  { ______,  ______,         KC_F1,           KC_F2,          KC_F3,          KC_F4,  KC_F5,  KC_F6,  KC_F7,   KC_F8,   KC_F9,   KC_F10,  KC_F11,        KC_F12,        ______ },
+  { ______,  ANGLE_BRACKETS, SQUARE_BRACKETS, CURLY_BRACKETS, ROUND_BRACKETS, ______, ______, ______, ______,  ______,  DE_ASTR, DE_TILD, ______,        KC_MS_WH_UP,   ______ },
+  { ______,  KC_LEFT,        KC_UP,           KC_DOWN,        KC_RIGHT,       ______, ______, ______, ______,  ______,  ______,  DE_GRV,  KC_MS_WH_LEFT, KC_MS_WH_DOWN, KC_MS_WH_RIGHT },
+  { DE_HASH, MS_LEFT,        MS_UP,           MS_DOWN,        MS_RIGHT,       ______, ______, ______, DE_SCLN, DE_COLN, DE_BSLS, DE_CIRC, KC_MS_BTN1,    MS_UP,         KC_MS_BTN2 },
+  { RESET,   ______,         ______,          ______,         ______,         ______, ______, ______, ______,  ______,  ______,  ______,  MS_LEFT,       MS_DOWN,       MS_RIGHT },
 }
 };
 

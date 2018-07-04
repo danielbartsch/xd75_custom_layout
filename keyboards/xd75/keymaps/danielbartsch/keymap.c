@@ -157,9 +157,9 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case DE_GRV:
       if (record->event.pressed) {
         // '+' equals shifted '=' in american keyboard, which equals backtick in german keyboard
-        // one backtick in german keyboard prints nothing (dead key), a second tap prints two backticks
-        // the following sendstring ensures that one backtick is sent
-        SEND_STRING("++"SS_TAP(X_BSPACE));
+        // one backtick in german keyboard prints nothing (dead key), and needs a second input
+        // if the second input is a space, one backtick will be sent
+        SEND_STRING("+ ");
       }
       return false;
     case CURLY_BRACKETS:

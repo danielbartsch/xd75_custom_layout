@@ -66,7 +66,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------+--------|
  * | ENTER  | a      | s      | h      | t      | g      | y      | n      | e      | o      | i      | '      | ö      | PRINT  | RGUI   |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------+--------|
- * | &      | z      | x      | m      | c      | v      | k      | l      | ,      | .      | /      | -      | HOME   | UP     | END    |
+ * | *      | z      | x      | m      | c      | v      | k      | l      | ,      | .      | /      | ^      | HOME   | UP     | END    |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
  * |        | VOLDWN | VOLUP  | LALT   | SPACELS| LCTRL  | BACKSP | SPACEFN| DEL    | LOCK   |        | MENU   | LEFT   | DOWN   | RIGHT  |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
@@ -76,7 +76,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { KC_ESC,  DE_0,   DE_1,   DE_2,    DE_3,  DE_4,     DE_5,    DE_6,  DE_7,    DE_8,    DE_9,    DE_SS,   DE_AE,   __ss__,  KC_PGUP },
   { KC_TAB,  DE_Q,   DE_D,   DE_R,    DE_W,  DE_B,     DE_J,    DE_F,  DE_U,    DE_P,    DE_EQL,  DE_DLR,  DE_UE,   __ss__,  KC_PGDOWN },
   { KC_ENT,  DE_A,   DE_S,   DE_H,    DE_T,  DE_G,     DE_Y,    DE_N,  DE_E,    DE_O,    DE_I,    DE_QUOT, DE_OE,   KC_PSCR, KC_RGUI },
-  { DE_AMPR, DE_Z,   DE_X,   DE_M,    DE_C,  DE_V,     DE_K,    DE_L,  DE_COMM, DE_DOT,  DE_SLSH, DE_MINS, KC_HOME, KC_UP,   KC_END },
+  { DE_ASTR, DE_Z,   DE_X,   DE_M,    DE_C,  DE_V,     DE_K,    DE_L,  DE_COMM, DE_DOT,  DE_SLSH, DE_CIRC, KC_HOME, KC_UP,   KC_END },
   { __ss__,  VOL_DN, VOL_UP, KC_LALT, LS_SH, KC_LCTRL, KC_BSPC, LS_FN, KC_DEL,  KC_LOCK, __ss__,  KC_MENU, KC_LEFT, KC_DOWN, KC_RGHT },
 },
 
@@ -88,7 +88,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+-----------------+--------+--------|
  * | ENTER  | A      | S      | H      | T      | G      | Y      | N      | E      | O      | I      | "      | Ö      |        |        |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------+--------|
- * | @      | Z      | X      | M      | C      | V      | K      | L      | ?      | !      | \      | ^      | HOME   | UP     | END    |
+ * | @      | Z      | X      | M      | C      | V      | K      | L      | ?      | !      | \      |        | HOME   | UP     | END    |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
  * |        |        |        |        |        |        | BACKSP |        | DEL    |        |        |        | LEFT   | DOWN   | RIGHT  |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
@@ -98,7 +98,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { ______, KC_P0,  KC_P1,  KC_P2,  KC_P3,  KC_P4,  KC_P5,  KC_P6,  KC_P7,  KC_P8,   KC_P9,   ______,  ______, ______, ______ },
   { ______, ______, ______, ______, ______, ______, ______, ______, ______, ______,  DE_PLUS, DE_PERC, ______, ______, ______ },
   { ______, ______, ______, ______, ______, ______, ______, ______, ______, ______,  ______,  DE_DQOT, ______, ______, ______ },
-  { DE_AT,  ______, ______, ______, ______, ______, ______, ______, DE_QST, DE_EXLM, DE_BSLS, DE_CIRC, ______, ______, ______ },
+  { DE_AT,  ______, ______, ______, ______, ______, ______, ______, DE_QST, DE_EXLM, DE_BSLS, ______,  ______, ______, ______ },
   { ______, ______, ______, ______, ______, ______, ______, ______, ______, ______,  ______,  ______,  ______, ______, ______ },
 },
 
@@ -108,9 +108,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  * | TAB    | <>     | []     | {}     | ()     |        |        |        |        |        |        |        |        | WHEELUP|        |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * | ENTER  | LEFT   | UP     | DOWN   | RIGHT  |        |        | _      | |      | *      | ~      | `      | WHEELLT| WHEELDN| WHEELRT|
+ * | ENTER  | LEFT   | UP     | DOWN   | RIGHT  |        |        | _      | |      | &      | ~      | `      | WHEELLT| WHEELDN| WHEELRT|
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * | #      | MLEFT  | MUP    | MDOWN  | MRIGHT |        |        |        | ;      | :      |        |        | LTCLCK | MUP    | RTCLCK |
+ * | #      |        |        | HOME   | END    |        |        | -      | ;      | :      |        |        | LTCLCK | MUP    | RTCLCK |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  * | RESET  |        |        |        |        |        | BACKSP | FN     | DEL    |        |        |        | MLEFT  | MDOWN  | MRIGHT |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
@@ -119,8 +119,8 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
 [_FN] = { /* FUNCTION */
   { ______,  ______,         KC_F1,           KC_F2,          KC_F3,          KC_F4,  KC_F5,  KC_F6,   KC_F7,   KC_F8,   KC_F9,   KC_F10, KC_F11,        KC_F12,        ______ },
   { ______,  ANGLE_BRACKETS, SQUARE_BRACKETS, CURLY_BRACKETS, ROUND_BRACKETS, ______, ______, ______,  ______,  ______,  ______,  ______, ______,        KC_MS_WH_UP,   ______ },
-  { ______,  KC_LEFT,        KC_UP,           KC_DOWN,        KC_RIGHT,       ______, ______, DE_UNDS, DE_PIPE, DE_ASTR, DE_TILD, DE_GRV, KC_MS_WH_LEFT, KC_MS_WH_DOWN, KC_MS_WH_RIGHT },
-  { DE_HASH, MS_LEFT,        MS_UP,           MS_DOWN,        MS_RIGHT,       ______, ______, ______,  DE_SCLN, DE_COLN, ______,  ______, KC_MS_BTN1,    MS_UP,         KC_MS_BTN2 },
+  { ______,  KC_LEFT,        KC_UP,           KC_DOWN,        KC_RIGHT,       ______, ______, DE_UNDS, DE_PIPE, DE_AMPR, DE_TILD, DE_GRV, KC_MS_WH_LEFT, KC_MS_WH_DOWN, KC_MS_WH_RIGHT },
+  { DE_HASH, ______,         ______,          KC_HOME,        KC_END,         ______, ______, DE_MINS, DE_SCLN, DE_COLN, ______,  ______, KC_MS_BTN1,    MS_UP,         KC_MS_BTN2 },
   { RESET,   ______,         ______,          ______,         ______,         ______, ______, ______,  ______,  ______,  ______,  ______, MS_LEFT,       MS_DOWN,       MS_RIGHT },
 }
 };
@@ -145,7 +145,6 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case DE_PLUS:
     case DE_BSLS:
     case DE_AT:
-    case DE_CIRC:
       if (record->event.pressed) {
         SEND_STRING(SS_UP(X_LSHIFT));
         fakeShiftPressed = false;

@@ -132,6 +132,7 @@ const uint16_t PROGMEM fn_actions[] = {
 static bool fakeShiftPressed = false;
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
+  bool returnValue;
   switch (keycode) {
     case LS_SH:
       if (record->event.pressed) {
@@ -141,7 +142,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(SS_UP(X_LSHIFT));
         fakeShiftPressed = false;
       }
-      return true;
+      returnValue = true;
+      break;
     case DE_PLUS:
     case DE_BSLS:
     case DE_AT:
@@ -152,7 +154,8 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         SEND_STRING(SS_DOWN(X_LSHIFT));
         fakeShiftPressed = true;
       }
-      return true;
+      returnValue = true;
+      break;
     case DE_GRV:
       if (record->event.pressed) {
         // '+' equals shifted '=' in american keyboard, which equals backtick in german keyboard
@@ -160,38 +163,55 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
         // if the second input is a space, one backtick will be sent
         SEND_STRING("+ ");
       }
-      return false;
+      returnValue = false;
+      break;
     case CURLY_BRACKETS:
       if (record->event.pressed) {
         // right alt + 7 equals '{', right alt + 0 equals '}' in german keyboard
         SEND_STRING(SS_DOWN(X_RALT)"70"SS_UP(X_RALT)SS_TAP(X_LEFT));
       }
-      return false;
+      returnValue = false;
+      break;
     case SQUARE_BRACKETS:
       if (record->event.pressed) {
         // right alt + 8 equals '[', right alt + 9 equals ']' in german keyboard
         SEND_STRING(SS_DOWN(X_RALT)"89"SS_UP(X_RALT)SS_TAP(X_LEFT));
       }
-      return false;
+      returnValue = false;
+      break;
     case ROUND_BRACKETS:
       if (record->event.pressed) {
         // shift + 8 equals '(', shift + 9 equals ')' in german keyboard
         SEND_STRING(SS_DOWN(X_LSHIFT)"89"SS_UP(X_LSHIFT)SS_TAP(X_LEFT));
       }
-      return false;
+      returnValue = false;
+      break;
     case ANGLE_BRACKETS:
       if (record->event.pressed) {
         // X_NONUS_BSLASH is a key that does not exist in an american keyboard.
         // It produces < normally, and > in shifted state in a german keyboard.
         SEND_STRING(SS_TAP(X_NONUS_BSLASH)SS_DOWN(X_LSHIFT)SS_TAP(X_NONUS_BSLASH)SS_UP(X_LSHIFT)SS_TAP(X_LEFT));
       }
-      return false;
+      returnValue = false;
+      break;
     default:
-      if (record->event.pressed && !fakeShiftPressed) {
-        SEND_STRING(SS_UP(X_LSHIFT));
-      } else if (fakeShiftPressed) {
-        SEND_STRING(SS_DOWN(X_LSHIFT));
-      }
-      return true;
+      returnValue = true;
+      break;
   }
+  if (returnValue == true) {
+    if (record->event.pressed && !fakeShiftPressed) {
+      SEND_STRING(SS_UP(X_LSHIFT));
+    } else if (fakeShiftPressed) {
+      SEND_STRING(SS_DOWN(X_LSHIFT));
+    }
+  }
+  return returnValue;
 }
+
+/*
+flash firmware:
+  1. reset keyboard
+  2. sudo dfu-programmer atmega32u4 erase
+  3. sudo dfu-programmer atmega32u4 flash xd75_danielbartsch.hex 
+  4. sudo dfu-programmer atmega32u4 reset
+*/

@@ -47,8 +47,8 @@ enum custom_keycodes {
 // key shorthand
 #define __ss__ KC_SPC
 #define ______ KC_TRNS
-#define LS_SH LT(_SH, __ss__)
-#define LS_FN LT(_FN, __ss__)
+#define MO_SH MO(_SH)
+#define MO_FN MO(_FN)
 #define VOL_DN KC_AUDIO_VOL_DOWN
 #define VOL_UP KC_AUDIO_VOL_UP
 #define MS_LEFT KC_MS_LEFT
@@ -68,7 +68,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------+--------|
  * | *      | z      | x      | m      | c      | v      | k      | l      | ,      | .      | /      | ^      | HOME   | UP     | END    |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
- * |        | VOLDWN | VOLUP  | LALT   | SPACELS| LCTRL  | BACKSP | SPACEFN| DEL    | LOCK   |        | MENU   | LEFT   | DOWN   | RIGHT  |
+ * | VOLDWN | VOLUP  | LALT   | LS     | SPACE  | LCTRL  | BACKSP | SPACE  | FN     | DEL    | LOCK   | MENU   | LEFT   | DOWN   | RIGHT  |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
@@ -77,7 +77,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   { KC_TAB,  DE_Q,   DE_D,   DE_R,    DE_W,  DE_B,     DE_J,    DE_F,  DE_U,    DE_P,    DE_EQL,  DE_DLR,  DE_UE,   __ss__,  KC_PGDOWN },
   { KC_ENT,  DE_A,   DE_S,   DE_H,    DE_T,  DE_G,     DE_Y,    DE_N,  DE_E,    DE_O,    DE_I,    DE_QUOT, DE_OE,   KC_PSCR, KC_RGUI },
   { DE_ASTR, DE_Z,   DE_X,   DE_M,    DE_C,  DE_V,     DE_K,    DE_L,  DE_COMM, DE_DOT,  DE_SLSH, DE_CIRC, KC_HOME, KC_UP,   KC_END },
-  { __ss__,  VOL_DN, VOL_UP, KC_LALT, LS_SH, KC_LCTRL, KC_BSPC, LS_FN, KC_DEL,  KC_LOCK, __ss__,  KC_MENU, KC_LEFT, KC_DOWN, KC_RGHT },
+  { VOL_DN,  VOL_UP, KC_LALT, MO_SH, __ss__, KC_LCTRL, KC_BSPC, __ss__,MO_FN,   KC_DEL,  KC_LOCK, KC_MENU, KC_LEFT, KC_DOWN, KC_RGHT },
 },
 
  /* SHIFT
@@ -90,7 +90,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------------------------+--------+--------|
  * | @      | Z      | X      | M      | C      | V      | K      | L      | ?      | !      | \      |        | HOME   | UP     | END    |
  * |--------+--------+--------+--------+--------+-----------------+--------+--------+--------+--------+-----------------+--------+--------|
- * |        |        |        |        |        |        | BACKSP |        | DEL    |        |        |        | LEFT   | DOWN   | RIGHT  |
+ * |        |        |        |        |        |        | BACKSP |        |        | DEL    |        |        | LEFT   | DOWN   | RIGHT  |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
@@ -112,7 +112,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
  * | #      |        |        | HOME   | END    |        |        | -      | ;      | :      |        |        | LTCLCK | MUP    | RTCLCK |
  * |--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------+--------|
- * | RESET  |        |        |        |        |        | BACKSP | FN     | DEL    |        |        |        | MLEFT  | MDOWN  | MRIGHT |
+ * | RESET  |        |        |        |        |        | BACKSP | FN     |        | DEL    |        |        | MLEFT  | MDOWN  | MRIGHT |
  * '--------------------------------------------------------------------------------------------------------------------------------------'
  */
 
@@ -134,7 +134,7 @@ static bool fakeShiftPressed = false;
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   bool returnValue;
   switch (keycode) {
-    case LS_SH:
+    case MO_SH:
       if (record->event.pressed) {
         SEND_STRING(SS_DOWN(X_LSHIFT));
         fakeShiftPressed = true;
